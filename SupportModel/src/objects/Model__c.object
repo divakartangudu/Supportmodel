@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Model_Compat_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Model_Compat_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Customer_Name__c</fields>
+        <fields>Service_Type__c</fields>
+        <fields>Contract_Start_Date__c</fields>
+        <fields>Monthly_Service_Request_Volume__c</fields>
+        <fields>Monthy_Incident_Volume__c</fields>
+        <fields>Business_User_Count__c</fields>
+        <label>Model Compat Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Model object is used to give user option to enter details related to Incidents and Service Requests</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Average_Incident_Resolution_Time__c</fullName>
+        <externalId>false</externalId>
+        <formula>ROUND((Yearly_Efforts_IT__c  /  No_of_IT_Tickets__c),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Average Incident Resolution Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Average_Service_Request_Resolution_Time__c</fullName>
+        <externalId>false</externalId>
+        <formula>ROUND((Yearly_Efforts_SR__c  / No_of_SR_Tickets__c),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Average Service Request Resolution Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Average_Time_for_Knowledge_Retention__c</fullName>
+        <defaultValue>2</defaultValue>
+        <description>You may change this value as per the context.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Hours per incident</inlineHelpText>
+        <label>Average Time for Knowledge Retention</label>
+        <precision>8</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Avg_Communication_Collaboration_Time__c</fullName>
+        <defaultValue>0.15</defaultValue>
+        <description>% of incident &amp; service request resolution effort</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You may change this value as per the context.</inlineHelpText>
+        <label>Avg Communication &amp; Collaboration Time</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Avg_Problem_Ticket_Resolution_Time__c</fullName>
+        <defaultValue>36</defaultValue>
+        <description>Hours per problem ticket</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You may change this value as per the context.</inlineHelpText>
+        <label>Avg Problem Ticket Resolution Time</label>
+        <precision>8</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Avg_Service_Request_Resolution_Time__c</fullName>
+        <externalId>false</externalId>
+        <formula>Yearly_Efforts_SR__c  /  No_of_SR_Tickets__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Avg Service Request Resolution Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Avg_Time_for_Prev_Corr_Actions__c</fullName>
+        <defaultValue>0.5</defaultValue>
+        <description>Hours per incident</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You may change this value as per the context.</inlineHelpText>
+        <label>Avg Time for Prev/Corr Actions</label>
+        <precision>8</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Business_User_Count__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter potential count of business users who are expected to raise incidents and service requests. While this user count is not currently used to estimate efforts in this model, please make sure ticket volume is proportionate to the user volume.</inlineHelpText>
+        <label>Business User Count</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Category_Sum_SR__c</fullName>
+        <externalId>false</externalId>
+        <label>Category % Sum SR</label>
+        <summarizedField>Category__c.Percentage__c</summarizedField>
+        <summaryFilterItems>
+            <field>Category__c.Type__c</field>
+            <operation>equals</operation>
+            <value>SR</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Category__c.Models__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Category_value__c</fullName>
+        <externalId>false</externalId>
+        <label>Category % value</label>
+        <summarizedField>Category__c.Percentage__c</summarizedField>
+        <summaryFilterItems>
+            <field>Category__c.Type__c</field>
+            <operation>equals</operation>
+            <value>IT</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Category__c.Models__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Change_Minor_Enhancement_Efforts_Month__c</fullName>
+        <defaultValue>90</defaultValue>
+        <description>Hours on average per Month</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You may change this value as per the context.</inlineHelpText>
+        <label>Change/ Minor Enhancement Efforts/Month</label>
+        <precision>8</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consulting_Efforts__c</fullName>
+        <defaultValue>9</defaultValue>
+        <description>Hours per week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You may change this value as per the context.</inlineHelpText>
+        <label>Consulting Efforts</label>
+        <precision>8</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Duration__c</fullName>
+        <description>Enter Contract Duration in Years</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter Contract Duration in Years</inlineHelpText>
+        <label>Contract Duration</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>12</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>24</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>36</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>48</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>60</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contract_Management_Efforts__c</fullName>
+        <defaultValue>0.03</defaultValue>
+        <description>% of total ticket related efforts</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You may change this value as per the context.</inlineHelpText>
+        <label>Contract Management Efforts</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Start_Date__c</fullName>
+        <description>Planned Start Date of the project</description>
+        <externalId>false</externalId>
+        <label>Contract Start Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Customer Name</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Models</relationshipLabel>
+        <relationshipName>Models</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Initial_Efforts__c</fullName>
+        <defaultValue>0.10</defaultValue>
+        <description>% of total first year efforts</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You may change this value as per the context.</inlineHelpText>
+        <label>Initial Efforts</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Model_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Model Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Monthly_Service_Request_Volume__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter this value.</inlineHelpText>
+        <label>Monthly Service Request Volume</label>
+        <precision>6</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Monthy_Incident_Volume__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter this value.</inlineHelpText>
+        <label>Monthy Incident Volume</label>
+        <precision>6</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>No_of_IT_Tickets__c</fullName>
+        <externalId>false</externalId>
+        <label>No of IT Tickets</label>
+        <summarizedField>Category__c.No_of_Tickets_Actual__c</summarizedField>
+        <summaryFilterItems>
+            <field>Category__c.Type__c</field>
+            <operation>equals</operation>
+            <value>IT</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Category__c.Models__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>No_of_SR_Tickets__c</fullName>
+        <externalId>false</externalId>
+        <label>No of SR Tickets</label>
+        <summarizedField>Category__c.No_of_Tickets_Actual__c</summarizedField>
+        <summaryFilterItems>
+            <field>Category__c.Type__c</field>
+            <operation>equals</operation>
+            <value>SR</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Category__c.Models__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Timezone_of_Business_Users__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please consider geo location of business users while finalizing overall costs. This model does not consider non-standard hours. If support needed during non-standard hours, please add on the effort/ rates accordingly.</inlineHelpText>
+        <label>Primary Timezone of Business Users</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Timezone</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Problem_Ticket_Volume__c</fullName>
+        <defaultValue>0.10</defaultValue>
+        <description>&apos;Of incident ticket volume</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You may change this value as per the context.</inlineHelpText>
+        <label>Problem Ticket Volume</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RunTrigger__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>RunTrigger</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SDM_Efforts__c</fullName>
+        <defaultValue>0.05</defaultValue>
+        <description>% of total ticket related efforts</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You may change this value as per the context.</inlineHelpText>
+        <label>SDM Efforts</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Service_Optimization_Year_1_Year_2__c</fullName>
+        <defaultValue>0.10</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>It is the percentage of decrease/increase in service optimization expected in the year. You may enter negative number in case it is expected to be increased.</inlineHelpText>
+        <label>Service Optimization %(Year 1- Year 2)</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Service_Optimization_Year_2_Year_3__c</fullName>
+        <defaultValue>0.10</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>It is the percentage of decrease/increase in service optimization expected in the year. You may enter negative number in case it is expected to be increased.</inlineHelpText>
+        <label>Service Optimization %(Year 2- Year 3)</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Service_Optimization_Year_3_Year_4__c</fullName>
+        <defaultValue>0.10</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>It is the percentage of decrease/increase in service optimization expected in the year. You may enter negative number in case it is expected to be increased.</inlineHelpText>
+        <label>Service Optimization %(Year 3- Year 4)</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Service_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This cost model is based on 8x5 service type. Please add on relevant efforts and costs needed to support other service types.</inlineHelpText>
+        <label>Service Type</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>8x5</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8x7</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>24x5</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>24x7</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TVITYear1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Monthy_Incident_Volume__c *12</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TVITYear1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Yearly_Efforts_IT__c</fullName>
+        <externalId>false</externalId>
+        <label>Yearly Efforts IT</label>
+        <summarizedField>Category__c.Yearly_Efforts_Actual__c</summarizedField>
+        <summaryFilterItems>
+            <field>Category__c.Type__c</field>
+            <operation>equals</operation>
+            <value>IT</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Category__c.Models__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Yearly_Efforts_SR__c</fullName>
+        <externalId>false</externalId>
+        <label>Yearly Efforts SR</label>
+        <summarizedField>Category__c.Yearly_Efforts_Actual__c</summarizedField>
+        <summaryFilterItems>
+            <field>Category__c.Type__c</field>
+            <operation>equals</operation>
+            <value>SR</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Category__c.Models__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <label>Model</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>M-{00000}</displayFormat>
+        <label>Model</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Models</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Customer_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Monthy_Incident_Volume__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Monthly_Service_Request_Volume__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Service_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Primary_Timezone_of_Business_Users__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Business_User_Count__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Category_Percentage_Sum</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(Category_value__c  &gt;1, Category_Sum_SR__c&gt;1 )</errorConditionFormula>
+        <errorMessage>Category percentage SUM cannot exceed 100%</errorMessage>
+    </validationRules>
+</CustomObject>

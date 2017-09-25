@@ -1,0 +1,21 @@
+.THIS {
+              
+}
+
+.THIS .custbutton
+{
+    height : 40px;          
+}    
+  
+.THIS .custmodalheight
+{
+    height : 100px;        
+}         
+/*
+.THIS .slds-modal__container {  
+    margin: 0 auto;
+    width: 75%;
+    max-width: 40rem;
+    min-width: 20rem;
+}
+*/

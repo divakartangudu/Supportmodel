@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" access="global">
+ 
+   <aura:attribute name="recId" type="Id"/>
+ 
+</aura:event>

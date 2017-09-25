@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Model</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Models</value>
+    </caseValues>
+    <fields>
+        <label><!-- Average Incident Resolution Time --></label>
+        <name>Average_Incident_Resolution_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Average Service Request Resolution Time --></label>
+        <name>Average_Service_Request_Resolution_Time__c</name>
+    </fields>
+    <fields>
+        <help><!-- Hours per incident --></help>
+        <label><!-- Average Time for Knowledge Retention --></label>
+        <name>Average_Time_for_Knowledge_Retention__c</name>
+    </fields>
+    <fields>
+        <help><!-- You may change this value as per the context. --></help>
+        <label><!-- Avg Communication &amp; Collaboration Time --></label>
+        <name>Avg_Communication_Collaboration_Time__c</name>
+    </fields>
+    <fields>
+        <help><!-- You may change this value as per the context. --></help>
+        <label><!-- Avg Problem Ticket Resolution Time --></label>
+        <name>Avg_Problem_Ticket_Resolution_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Avg Service Request Resolution Time --></label>
+        <name>Avg_Service_Request_Resolution_Time__c</name>
+    </fields>
+    <fields>
+        <help><!-- You may change this value as per the context. --></help>
+        <label><!-- Avg Time for Prev/Corr Actions --></label>
+        <name>Avg_Time_for_Prev_Corr_Actions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter potential count of business users who are expected to raise incidents and service requests. While this user count is not currently used to estimate efforts in this model, please make sure ticket volume is proportionate to the user volume. --></help>
+        <label><!-- Business User Count --></label>
+        <name>Business_User_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Category % Sum SR --></label>
+        <name>Category_Sum_SR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Category % value --></label>
+        <name>Category_value__c</name>
+    </fields>
+    <fields>
+        <help><!-- You may change this value as per the context. --></help>
+        <label><!-- Change/ Minor Enhancement Efforts/Month --></label>
+        <name>Change_Minor_Enhancement_Efforts_Month__c</name>
+    </fields>
+    <fields>
+        <help><!-- You may change this value as per the context. --></help>
+        <label><!-- Consulting Efforts --></label>
+        <name>Consulting_Efforts__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter Contract Duration in Years --></help>
+        <label><!-- Contract Duration --></label>
+        <name>Contract_Duration__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- You may change this value as per the context. --></help>
+        <label><!-- Contract Management Efforts --></label>
+        <name>Contract_Management_Efforts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Start Date --></label>
+        <name>Contract_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Name --></label>
+        <name>Customer_Name__c</name>
+        <relationshipLabel><!-- Models --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- You may change this value as per the context. --></help>
+        <label><!-- Initial Efforts --></label>
+        <name>Initial_Efforts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Model Name --></label>
+        <name>Model_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter this value. --></help>
+        <label><!-- Monthly Service Request Volume --></label>
+        <name>Monthly_Service_Request_Volume__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter this value. --></help>
+        <label><!-- Monthy Incident Volume --></label>
+        <name>Monthy_Incident_Volume__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of IT Tickets --></label>
+        <name>No_of_IT_Tickets__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of SR Tickets --></label>
+        <name>No_of_SR_Tickets__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please consider geo location of business users while finalizing overall costs. This model does not consider non-standard hours. If support needed during non-standard hours, please add on the effort/ rates accordingly. --></help>
+        <label><!-- Primary Timezone of Business Users --></label>
+        <name>Primary_Timezone_of_Business_Users__c</name>
+    </fields>
+    <fields>
+        <help><!-- You may change this value as per the context. --></help>
+        <label><!-- Problem Ticket Volume --></label>
+        <name>Problem_Ticket_Volume__c</name>
+    </fields>
+    <fields>
+        <label><!-- RunTrigger --></label>
+        <name>RunTrigger__c</name>
+    </fields>
+    <fields>
+        <help><!-- You may change this value as per the context. --></help>
+        <label><!-- SDM Efforts --></label>
+        <name>SDM_Efforts__c</name>
+    </fields>
+    <fields>
+        <help><!-- It is the percentage of decrease/increase in service optimization expected in the year. You may enter negative number in case it is expected to be increased. --></help>
+        <label><!-- Service Optimization %(Year 1- Year 2) --></label>
+        <name>Service_Optimization_Year_1_Year_2__c</name>
+    </fields>
+    <fields>
+        <help><!-- It is the percentage of decrease/increase in service optimization expected in the year. You may enter negative number in case it is expected to be increased. --></help>
+        <label><!-- Service Optimization %(Year 2- Year 3) --></label>
+        <name>Service_Optimization_Year_2_Year_3__c</name>
+    </fields>
+    <fields>
+        <help><!-- It is the percentage of decrease/increase in service optimization expected in the year. You may enter negative number in case it is expected to be increased. --></help>
+        <label><!-- Service Optimization %(Year 3- Year 4) --></label>
+        <name>Service_Optimization_Year_3_Year_4__c</name>
+    </fields>
+    <fields>
+        <help><!-- This cost model is based on 8x5 service type. Please add on relevant efforts and costs needed to support other service types. --></help>
+        <label><!-- Service Type --></label>
+        <name>Service_Type__c</name>
+        <picklistValues>
+            <masterLabel>24x5</masterLabel>
+            <translation><!-- 24x5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>24x7</masterLabel>
+            <translation><!-- 24x7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8x5</masterLabel>
+            <translation><!-- 8x5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8x7</masterLabel>
+            <translation><!-- 8x7 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- TVITYear1 --></label>
+        <name>TVITYear1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Yearly Efforts IT --></label>
+        <name>Yearly_Efforts_IT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Yearly Efforts SR --></label>
+        <name>Yearly_Efforts_SR__c</name>
+    </fields>
+    <layouts>
+        <layout>Inputs Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Inputs --></label>
+            <section>Inputs</section>
+        </sections>
+        <sections>
+            <label><!-- Parameters --></label>
+            <section>Parameters</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Calculate Effort --></label>
+        <name>Calculate_Effort</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- ResourceLoading2 --></label>
+        <name>ResourceLoading2</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Resource Loading --></label>
+        <name>Resource_Loading</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Resource Loading 3 --></label>
+        <name>Resource_Loading_3</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Category percentage SUM cannot exceed 100% --></errorMessage>
+        <name>Category_Percentage_Sum</name>
+    </validationRules>
+</CustomObjectTranslation>

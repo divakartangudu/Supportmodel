@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Master Category</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Master Categories</value>
+    </caseValues>
+    <fields>
+        <label><!-- Category_Name --></label>
+        <name>Category_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Percentage --></label>
+        <name>Percentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>IT</masterLabel>
+            <translation><!-- IT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SR</masterLabel>
+            <translation><!-- SR --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Unit of Effort(Hrs) --></label>
+        <name>Unit_of_Effort_Hrs__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

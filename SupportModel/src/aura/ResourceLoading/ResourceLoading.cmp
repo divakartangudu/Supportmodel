@@ -1,0 +1,366 @@
+<aura:component controller="ResourceLoadingRec"   implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:attribute name="recordId" type="String"  />
+    <aura:attribute name="modelId" type="String"  />  
+    <aura:attribute name="newResource" type="ResourceLoading__c"    
+     default="{ 'sobjectType': '	ResourceLoading__c',  
+                    'Name': ''}"/> 
+    <aura:attribute name="ResourcesList" type="ResourceLoading__c[]"/>  
+      
+	<aura:attribute name="YearsList" type="Year__c[]"/>  
+    <aura:attribute name="model" type="Model__c"  default="{ 'sobjectType': '	Model__c',  
+                    'Name': ''}"/>        
+    <aura:attribute name="StDate" type="Date" />  
+     <aura:attribute name="selectedCount" type="integer" default="0"/>  
+    <aura:attribute name="months" type="String[]" />
+   <aura:attribute name="contr_st_date" type="Date" default="{!v.model.Contract_Start_Date__c}"/>  
+     <aura:handler name="init" value="{!this}" action="{!c.loadResourceList}"/>  
+     
+    <!-- CREATE NEW ITEM FORM -->
+    <form class="slds-form--stacked" >
+    <div class="slds">
+    <div class="slds-grid slds-wrap">
+      <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+       
+      <div class="slds-form-element slds-is-required">
+          <div class="slds-form-element__control">
+              <ui:inputSelect aura:id="Role" label="Role"
+                  class="slds-input"
+                  labelClass="slds-form-element__label"  
+                  value="{!v.newResource.Role__c}"
+                  required="true" >
+                  <ui:inputSelectOption text="--None--" label="--None--"  value="true"/>  
+			   <ui:inputSelectOption text="Salesforce Project Management" label="Salesforce Project Management" />
+   			   <ui:inputSelectOption text="Salesforce Support Lead (Salesforce, Force.com, Integration)" label="Salesforce Support Lead (Salesforce, Force.com, Integration)"/>     
+      			<ui:inputSelectOption text="Salesforce Consultant/ Sr Architect" label="Salesforce Consultant/ Sr Architect"/> 
+                 <ui:inputSelectOption text="Salesforce Support Lead (Salesforce, Force.com, Integration, Data Migration)" label="Salesforce Support Lead (Salesforce, Force.com, Integration, Data Migration)"/>     
+                  <ui:inputSelectOption text="Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration)" label="	Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration)"/>     
+				<ui:inputSelectOption text="Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration) - On Call" label="Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration) - On Call"/>     
+				<ui:inputSelectOption text="Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration)- Off hours" label="Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration)- Off hours"/>     
+				<ui:inputSelectOption text="Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration) - Weekends" label="Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration) - Weekends"/>                       
+                  
+                </ui:inputSelect>  
+          </div>
+     </div>
+        
+           <div class="slds-form-element slds-is-required">
+          <div class="slds-form-element__control">
+         <ui:inputSelect aura:id="Location" label="Location"
+                  class="slds-input"
+                  labelClass="slds-form-element__label"
+                  value="{!v.newResource.Base_Location__c}"
+                  required="true">   
+                <ui:inputSelectOption text="--None--" label="--None--"  value="true"/>                    
+                <ui:inputSelectOption text="Offshore - INDIA" label="Offshore - INDIA" />  
+                <ui:inputSelectOption text="Onsite" label="Onsite"/>   
+		</ui:inputSelect>
+               </div>
+      	</div>
+          
+            		 <div class="slds-form-element slds-is-required">
+          <div class="slds-form-element__control">
+              <ui:inputDate aura:id="St_Date" label="Start Date"  displayDatePicker="true"
+                  class="slds-input"
+                  labelClass="slds-form-element__label"
+                  value="{!v.newResource.Start_Date__c}"    
+                  required="true"  />                                    
+               </div>  
+      		</div>  
+             
+          <div class="slds-form-element slds-is-required">
+          <div class="slds-form-element__control">
+              <ui:inputSelect aura:id="Load" label="Loading Percentage" 
+                  class="slds-input"
+                  labelClass="slds-form-element__label"  
+                  value="{!v.newResource.Loading__c}"  
+                              required="true" >  
+                  <ui:inputSelectOption text="--None--" label="--None--"  value="true"/>    
+                  <ui:inputSelectOption text="10" label="10"/> 
+                  <ui:inputSelectOption text="20" label="20"/> 
+                  <ui:inputSelectOption text="30" label="30"/> 
+                  <ui:inputSelectOption text="40" label="40"/> 
+                  <ui:inputSelectOption text="50" label="50"/> 
+                  <ui:inputSelectOption text="60" label="60"/> 
+                  <ui:inputSelectOption text="70" label="70"/>   
+                  <ui:inputSelectOption text="80" label="80"/> 
+                  <ui:inputSelectOption text="90" label="90"/> 
+                  <ui:inputSelectOption text="100" label="100"/>   
+              </ui:inputSelect>
+               </div>
+      		</div> 
+            
+           </div>   
+            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">  
+            
+            <div class="slds-form-element slds-is-required">
+          <div class="slds-form-element__control">
+              <ui:inputNumber aura:id="Rate" label="Rate/Hr"
+                  class="slds-input"
+                  labelClass="slds-form-element__label"
+                  value="{!v.newResource.Rate_Hr__c}"  
+                              required="true"  />          
+               </div>
+      		</div>
+            
+            <div class="slds-form-element slds-is-required">
+          <div class="slds-form-element__control">
+              <ui:inputNumber aura:id="GCM_Level" label="GCM Level"
+                  class="slds-input"
+                  labelClass="slds-form-element__label"
+                  value="{!v.newResource.GCM_Level__c}"    
+                              required="true" />          
+               </div>
+      		</div>
+                
+						 <div class="slds-form-element slds-is-required">
+          <div class="slds-form-element__control">
+              <ui:inputDate aura:id="End_Date" label="End Date"  displayDatePicker="true"
+                  class="slds-input"
+                  labelClass="slds-form-element__label"  
+                  value="{!v.newResource.End_Date__c}"  
+                            required="true"  />          
+               </div>  
+      		</div>  
+
+            </div>          
+         </div> 
+         </div>  
+            
+        <br/>        
+         
+        <div class="slds-form-element">
+          <ui:button label="Add Resource"
+              class="slds-button slds-button--brand"
+              press="{!c.clickCreateResource}"/>  
+     </div>
+     </form> 
+ <!--Header part-->
+    <div class="slds-page-header">
+    <p class="slds-page-header__title slds-truncate" title="">Resource List</p>   
+    <div class="slds-grid slds-grid_align-space">
+         
+  <!--    <span class="slds-badge">Selected Resource:{!v.selectedCount}</span>   -->  
+      
+	
+        <ui:inputSelect aura:id="Yearslist" label="Select Year"    
+                  class="slds-input"
+                  labelClass="slds-form-element__label"  
+                  required="true" >  
+                <ui:inputSelectOption text="--None--" label="--None--"  value="true"/>  
+			   <ui:inputSelectOption text="Year1" label="Year1" />  
+   			   <ui:inputSelectOption text="Year2" label="Year2"/>     
+      			<ui:inputSelectOption text="Year3" label="Year3"/>   
+                <ui:inputSelectOption text="Year4" label="Year4"/>     
+      			<ui:inputSelectOption text="Year5" label="Year5"/>          
+                 </ui:inputSelect>
+        <button class="slds-button slds-button--brand custbutton"    onclick="{!c.openModel}">Show Resource Loading</button>
+         <button class="slds-button slds-button--brand custbutton" onclick="{!c.deleteSelected}">Delete Resource</button>          
+    </div>    
+   </div>       
+
+ <!--Resource table part-->   
+  <!--<aura:if isTrue="{!v.truthy}"> -->
+    <div aura:id="Reslo" class="slds-scrollable--x">  
+   <table class="slds-table slds-table--bordered slds-table--cell-buffer slds-table_col-bordered">  
+      <thead>
+         <tr class="slds-text-title--caps">
+            <th style="width:3.25rem;" class="slds-text-align--right">
+               <div class="slds-form-element">
+                  <div class="slds-form-element__control">
+                     <label class="slds-checkbox">
+                        <!--header checkbox for select all-->
+                        <ui:inputCheckbox aura:id="box3" change="{!c.selectAll}"/>
+                        <span class="slds-checkbox--faux"></span>
+                        <span class="slds-form-element__label text"></span>
+                     </label>
+                  </div>
+               </div>
+            </th>
+             <th>
+               <span class="slds-truncate" title="Name">Name</span>        
+            </th>
+            <th>
+               <span class="slds-truncate" title="Role">Role</span>      
+            </th>
+            <th>
+               <span class="slds-truncate" title="Location">Location</span>    
+            </th>
+            <th>       
+               <span class="slds-truncate" title="Rate">Rate</span>
+            </th>
+               <th>
+               <span class="slds-truncate" title="GCM Level">GCM Level</span>
+            </th>
+               <th>
+               <span class="slds-truncate" title="Loading %">Loading %</span>
+            </th>
+               <th>
+               <span class="slds-truncate" title="Start Date">Start Date</span>
+            </th>
+            <th >
+               <div class="slds-truncate" title="End Date">End Date</div>  
+            </th>
+         </tr>
+      </thead>
+      <!--table body start, 
+         Iterate contact list as a <tr>
+         -->
+      <tbody>
+         <aura:iteration items="{!v.ResourcesList}" var="res">
+            <tr>
+               <td scope="row" class="slds-text-align--right" style="width:3.25rem;">
+                  <div class="slds-form-element">
+                     <div class="slds-form-element__control">
+                        <label class="slds-checkbox">
+                           <ui:inputCheckbox text="{!res.Id}" aura:id="boxPack" value="" />    
+                           <span class="slds-checkbox--faux"></span>
+                           <span class="slds-form-element__label text"></span>
+                        </label>
+                     </div>
+                  </div>
+               </td>  
+                    <td scope="row">
+                  <div class="slds-truncate" title="{!res.Name}">{!res.Name}</div>     
+               </td>
+               <td scope="row">
+                  <div class="slds-truncate" title="{!res.Role__c}">{!res.Role__c}</div>    
+               </td>
+               <td scope="row">
+                  <div class="slds-truncate" title="{!res.Base_Location__c}">{!res.Base_Location__c}</div>
+               </td>
+                 <td scope="row">
+                  <div class="slds-truncate" title="{!res.Rate_Hr__c}">{!res.Rate_Hr__c}</div>
+               </td>
+                 <td scope="row">
+                  <div class="slds-truncate" title="{!res.GCM_Level__c}">{!res.GCM_Level__c}</div>
+               </td>
+                 <td scope="row">
+                  <div class="slds-truncate" title="{!res.Loading__c}">{!res.Loading__c}</div>  
+               </td>
+               <td scope="row">
+                  <div class="slds-truncate" title="{!res.Start_Date__c}">{!res.Start_Date__c}</div>
+               </td>
+               <td scope="row">
+                  <div class="slds-truncate" title="{!res.End_Date__c}">{!res.End_Date__c}</div>
+               </td>    
+            </tr>
+         </aura:iteration>  
+          
+      </tbody>
+   </table>  
+    </div>
+   <!--   </aura:if>    -->
+    
+    <!--use boolean attribute for Store true/false value,
+    make default to "false" so modal box are not display on the load of component. 
+    --> 
+  <aura:attribute name="isOpen" type="boolean" default="false"/>
+  <!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component--> 
+  <div class="slds-modal_large ">       
+     
+    
+  <!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->     
+    <aura:if isTrue="{!v.isOpen}">
+      
+   <!--###### MODAL BOX Start From Here ######--> 
+      <div   role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open "   >    
+        <div class="slds-modal__container"  >          
+          <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+          <div class="slds-modal__header">
+            <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+            X
+            <span class="slds-assistive-text">Close</span>
+            </button>
+            <h2 id="header99" class="slds-text-heading--medium">Resource Loading and Costing</h2>
+          </div>
+          <!--###### MODAL BOX BODY Part Start From Here ######-->
+          <div class="slds-modal__content slds-p-around--medium">   
+           <!--Resource table part-->   
+  <!--  <aura:if isTrue="{!v.truthy}"> -->
+    <div aura:id="Reslo" class="slds-scrollable--x">
+   <table class="slds-table slds-table--bordered slds-table--cell-buffer slds-table_col-bordered">
+      <thead>
+         <tr class="slds-text-title--caps">    
+            <th>
+               <span class="slds-truncate" title="Resource Role">Resource Role</span>          
+            </th>
+       		<th>
+               <span class="slds-truncate" title="Year">Year</span>
+            </th>
+             <aura:iteration items="{!v.months}" var="month" >
+              <th class="slds-text-heading--label slds-size--1-of-6" scope="col">{!month}</th>    
+                 </aura:iteration>    
+             
+         </tr>
+      </thead>
+      <!--table body start, 
+         Iterate contact list as a <tr>
+         -->
+      <tbody>
+         <aura:iteration items="{!v.YearsList}" var="yrs">  
+            <tr>
+               <td scope="row">  
+                  <div class="slds-truncate" title="{!yrs.ResourceLoadingId__r.Role__c}">{!yrs.ResourceLoadingId__r.Role__c}</div>
+               </td>
+                <td scope="row">
+                  <div class="slds-truncate" title="{!yrs.Year__c}">{!yrs.Year__c}</div>
+               </td>
+                  <td scope="row">
+                  <div class="slds-truncate" title="{!yrs.Jan__c}">{!yrs.Jan__c}</div>
+               </td>
+                 <td scope="row">
+                  <div class="slds-truncate" title="{!yrs.Feb__c}">{!yrs.Feb__c}</div>
+               </td>
+                 <td scope="row">
+                  <div class="slds-truncate" title="{!yrs.Mar__c}">{!yrs.Mar__c}</div>
+               </td>
+                <td scope="row">
+                  <div class="slds-truncate" title="{!yrs.Apr__c}">{!yrs.Apr__c}</div>
+               </td>
+                <td scope="row">
+                  <div class="slds-truncate" title="{!yrs.May__c}">{!yrs.May__c}</div>
+               </td>
+                <td scope="row">
+                  <div class="slds-truncate" title="{!yrs.Jun__c}">{!yrs.Jun__c}</div>
+               </td>
+                <td scope="row">
+                  <div class="slds-truncate" title="{!yrs.Jul__c}">{!yrs.Jul__c}</div>
+               </td>
+                <td scope="row">
+                  <div class="slds-truncate" title="{!yrs.Aug__c}">{!yrs.Aug__c}</div>
+               </td>
+                <td scope="row">
+                  <div class="slds-truncate" title="{!yrs.Sept__c}">{!yrs.Sept__c}</div>
+               </td>
+                <td scope="row">
+                  <div class="slds-truncate" title="{!yrs.Oct__c}">{!yrs.Oct__c}</div>
+               </td>
+                <td scope="row">
+                  <div class="slds-truncate" title="{!yrs.Nov__c}">{!yrs.Nov__c}</div>
+               </td>
+                <td scope="row">
+                  <div class="slds-truncate" title="{!yrs.Dec__c}">{!yrs.Dec__c}</div>    
+               </td>
+                 
+             
+            </tr>
+         </aura:iteration>  
+                  
+          
+      </tbody>
+   </table>
+    </div>  
+          </div>
+          <!--###### MODAL BOX FOOTER Part Start From Here ######-->
+          <div class="slds-modal__footer">
+              
+            <button class="slds-button slds-button--brand" onclick="{!c.closeModel}" >Cancel</button>    
+    <!--  <button class="slds-button slds-button- -neutral" onclick="{!c.likenClose}">Like and Close</button>  ###### -->
+          </div>  
+        </div>
+      </div>
+      <div class="slds-backdrop slds-backdrop--open"></div>
+      <!--###### MODAL BOX Part END Here ######-->
+    
+ 		</aura:if>  
+  </div>
+</aura:component>

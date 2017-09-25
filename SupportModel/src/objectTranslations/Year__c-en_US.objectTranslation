@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Year</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Years</value>
+    </caseValues>
+    <fields>
+        <label><!-- Apr --></label>
+        <name>Apr__c</name>
+    </fields>
+    <fields>
+        <label><!-- Aug --></label>
+        <name>Aug__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dec --></label>
+        <name>Dec__c</name>
+    </fields>
+    <fields>
+        <label><!-- FTE Jan --></label>
+        <name>FTE_Jan__c</name>
+    </fields>
+    <fields>
+        <label><!-- Feb --></label>
+        <name>Feb__c</name>
+    </fields>
+    <fields>
+        <label><!-- Jan --></label>
+        <name>Jan__c</name>
+    </fields>
+    <fields>
+        <label><!-- Jul --></label>
+        <name>Jul__c</name>
+    </fields>
+    <fields>
+        <label><!-- Jun --></label>
+        <name>Jun__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mar --></label>
+        <name>Mar__c</name>
+    </fields>
+    <fields>
+        <label><!-- May --></label>
+        <name>May__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nov --></label>
+        <name>Nov__c</name>
+    </fields>
+    <fields>
+        <label><!-- Oct --></label>
+        <name>Oct__c</name>
+    </fields>
+    <fields>
+        <label><!-- ResourceLoadingId --></label>
+        <name>ResourceLoadingId__c</name>
+        <relationshipLabel><!-- Years --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sept --></label>
+        <name>Sept__c</name>
+    </fields>
+    <fields>
+        <label><!-- Year# --></label>
+        <name>Year__c</name>
+        <picklistValues>
+            <masterLabel>Year1</masterLabel>
+            <translation><!-- Year1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Year2</masterLabel>
+            <translation><!-- Year2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Year3</masterLabel>
+            <translation><!-- Year3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Year4</masterLabel>
+            <translation><!-- Year4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Year5</masterLabel>
+            <translation><!-- Year5 --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

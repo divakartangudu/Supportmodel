@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Category</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Categories</value>
+    </caseValues>
+    <fields>
+        <label><!-- Category Name --></label>
+        <name>Category_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Models --></label>
+        <name>Models__c</name>
+        <relationshipLabel><!-- Categories --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- No Of Tickets --></label>
+        <name>No_Of_Tickets_IT__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of Tickets Actual --></label>
+        <name>No_of_Tickets_Actual__c</name>
+    </fields>
+    <fields>
+        <label><!-- Percentage --></label>
+        <name>Percentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>IT</masterLabel>
+            <translation><!-- IT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SR</masterLabel>
+            <translation><!-- SR --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Unit of Effort(Hrs) --></label>
+        <name>Unit_of_Effort_Hrs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Yearly Efforts Actual --></label>
+        <name>Yearly_Efforts_Actual__c</name>
+    </fields>
+    <fields>
+        <label><!-- Yearly Efforts (Hrs) --></label>
+        <name>Yearly_Efforts_Hrs_IT__c</name>
+    </fields>
+    <layouts>
+        <layout>Category Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

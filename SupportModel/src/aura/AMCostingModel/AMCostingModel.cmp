@@ -1,0 +1,57 @@
+<aura:component controller="costingModel" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<aura:attribute name="recordId" type="String"  />
+    <aura:attribute name="model" type="Model__c" default="{}" access="public"/>
+	<aura:handler name="init" value="{!this}" action="{!c.myAction}" />
+    <aura:dependency resource="markup://force:editRecord" type="EVENT"/>
+    <aura:handler event="force:refreshview" action="{!c.myAction}"/>
+    <!--<ui:button class="btn" label="Submit" press="{!c.setOutput}"/>-->
+
+    
+    <!--<h2>{!v.model.Id}</h2>-->
+  
+        <!--<h3><ui:outputNumber value="{!v.model.Monthy_Incident_Volume__c}"/></h3>-->
+        <!--<h4><ui:outputNumber value="{!v.model.TVITYear1__c}"/></h4>-->
+
+
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+  <thead>
+    <tr class="slds-text-title_caps">
+      <th scope="col">
+        <div class="slds-truncate" title="Ticekt Volume">Ticekt Volume</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 1">Year 1</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 2">Year 2</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 3">Year 4</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 5">Year 5</div>
+      </th>
+      </tr>
+  </thead>
+            <tbody>
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Incident Tickets">Incident Tickets</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.model.TVITYear1__c}"/>
+      </td>
+      <td data-label="Year 2">
+       <ui:outputNumber value="{!(v.model.Monthy_Incident_Volume__c)}"/>
+      </td>
+      <td data-label="Year 3">
+        <div class="slds-truncate" title="Prospecting">Prospecting</div>
+      </td>
+      <td data-label="Year 4">
+        <div class="slds-truncate" title="20%">20%</div>
+      </td>
+                </tr>
+            </tbody>
+  </table>
+   
+</aura:component>

@@ -1,0 +1,935 @@
+<aura:component controller="costingModel" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<aura:attribute name="recordId" type="String"  />
+    <aura:attribute name="model" type="Model__c" default="{}" access="public"/>
+	<aura:handler name="init" value="{!this}" action="{!c.myAction}" />
+    
+ <!--   <aura:dependency resource="markup://force:editRecord" type="EVENT"/>
+    <aura:handler event="force:refreshview" action="{!c.myAction}"/> -->
+  <!--<ui:button class="btn" label="Submit" press="{!c.setOutput}"/>-->
+      
+		
+    <aura:attribute name="year1inc" type="Integer"  />
+    <aura:attribute name="year2inc" type="Integer"  />
+    <aura:attribute name="year3inc" type="Integer"  />
+    <aura:attribute name="year4inc" type="Integer"  />
+    <aura:attribute name="year5inc" type="Integer"  />
+    
+    <aura:attribute name="year1SR" type="Integer"  />
+    <aura:attribute name="year2SR" type="Integer"  />
+    <aura:attribute name="year3SR" type="Integer"  />
+    <aura:attribute name="year4SR" type="Integer"  /> 
+    
+    <aura:attribute name="year1PT" type="Integer"  />
+    <aura:attribute name="year2PT" type="Integer"  />
+    <aura:attribute name="year3PT" type="Integer"  />
+    <aura:attribute name="year4PT" type="Integer"  />
+    <aura:attribute name="year5PT" type="Integer"  />
+    
+    <aura:attribute name="year1IncEff" type="Integer"  />
+    <aura:attribute name="year2IncEff" type="Integer"  />
+    <aura:attribute name="year3IncEff" type="Integer"  />
+    <aura:attribute name="year4IncEff" type="Integer"  />
+    <aura:attribute name="year5IncEff" type="Integer"  />
+    <aura:attribute name="checkbox" type="Boolean" />
+    
+    <aura:attribute name="year1SREff" type="Integer"  />
+    <aura:attribute name="year2SREff" type="Integer"  />
+    <aura:attribute name="year3SREff" type="Integer"  />
+    <aura:attribute name="year4SREff" type="Integer"  />
+    <aura:attribute name="year5SREff" type="Integer"  />
+    
+    <aura:attribute name="year1PTEff" type="Integer"  />
+    <aura:attribute name="year2PTEff" type="Integer"  />
+    <aura:attribute name="year3PTEff" type="Integer"  />
+    <aura:attribute name="year4PTEff" type="Integer"  />
+    <aura:attribute name="year5PTEff" type="Integer"  />
+    
+    <aura:attribute name="year1PCAEff" type="Integer"  />
+    <aura:attribute name="year2PCAEff" type="Integer"  />
+    <aura:attribute name="year3PCAEff" type="Integer"  />
+    <aura:attribute name="year4PCAEff" type="Integer"  />
+    <aura:attribute name="year5PCAEff" type="Integer"  /> 
+    
+    <aura:attribute name="year1KREff" type="Integer"  />
+    <aura:attribute name="year2KREff" type="Integer"  />
+    <aura:attribute name="year3KREff" type="Integer"  />
+    <aura:attribute name="year4KREff" type="Integer"  />
+    <aura:attribute name="year5KREff" type="Integer"  /> 
+    
+    <aura:attribute name="year1CCTEff" type="Integer"  />
+    <aura:attribute name="year2CCTEff" type="Integer"  />
+    <aura:attribute name="year3CCTEff" type="Integer"  />
+    <aura:attribute name="year4CCTEff" type="Integer"  />
+    <aura:attribute name="year5CCTEff" type="Integer"  /> 
+    
+    <aura:attribute name="year1SDMEff" type="Integer"  />
+    <aura:attribute name="year2SDMEff" type="Integer"  />
+    <aura:attribute name="year3SDMEff" type="Integer"  />
+    <aura:attribute name="year4SDMEff" type="Integer"  />
+    <aura:attribute name="year5SDMEff" type="Integer"  /> 
+    
+    <aura:attribute name="year1CMEEff" type="Integer"  />
+    <aura:attribute name="year2CMEEff" type="Integer"  />
+    <aura:attribute name="year3CMEEff" type="Integer"  />
+    <aura:attribute name="year4CMEEff" type="Integer"  />
+    <aura:attribute name="year5CMEEff" type="Integer"  /> 
+    
+    <aura:attribute name="year1MEEff" type="Integer"  />
+    <aura:attribute name="year2MEEff" type="Integer"  />
+    <aura:attribute name="year3MEEff" type="Integer"  />
+    <aura:attribute name="year4MEEff" type="Integer"  />
+    <aura:attribute name="year5MEEff" type="Integer"  />
+    
+    <aura:attribute name="year1ICEff" type="Integer"  />
+    
+    <aura:attribute name="year1CEEff" type="Integer"  />
+    <aura:attribute name="year2CEEff" type="Integer"  />
+    <aura:attribute name="year3CEEff" type="Integer"  />
+    <aura:attribute name="year4CEEff" type="Integer"  />
+    <aura:attribute name="year5CEEff" type="Integer"  />
+    
+    <aura:attribute name="year1TOTALEff" type="Integer"  />
+    <aura:attribute name="year2TOTALEff" type="Integer"  />
+    <aura:attribute name="year3TOTALEff" type="Integer"  />
+    <aura:attribute name="year4TOTALEff" type="Integer"  />
+    <aura:attribute name="year5TOTALEff" type="Integer"  />
+    
+    <aura:attribute name="year1FTE" type="Integer"  />
+    <aura:attribute name="year2FTE" type="Integer"  />
+    <aura:attribute name="year3FTE" type="Integer"  />
+    <aura:attribute name="year4FTE" type="Integer"  />
+    <aura:attribute name="year5FTE" type="Integer"  />
+    
+ <!--   <h2>{!v.model.Id}</h2>  -->
+ <aura:attribute name="Inccnt"  type="Integer" default="{!v.model.Monthy_Incident_Volume__c}"/> 
+    
+       <aura:attribute name="SRcnt" type="Integer" default="{!v.model.Monthly_Service_Request_Volume__c}"/>
+      <aura:attribute name="Prob_Tick" type="Integer" default="{!v.model.Problem_Ticket_Volume__c}"/>
+      <aura:attribute name="Avg_Inc" type="Integer" default="{!v.model.Average_Incident_Resolution_Time__c}"/>
+      <aura:attribute name="Avg_SR" type="Integer" default="{!v.model.Average_Service_Request_Resolution_Time__c}"/>
+      <aura:attribute name="Avg_PTR" type="Integer" default="{!v.model.Avg_Problem_Ticket_Resolution_Time__c}"/>
+      <aura:attribute name="Avg_PCA" type="Integer" default="{!v.model.Avg_Time_for_Prev_Corr_Actions__c}"/>
+      <aura:attribute name="Avg_KR" type="Integer" default="{!v.model.Average_Time_for_Knowledge_Retention__c}"/>      
+      <aura:attribute name="Avg_CCT" type="Integer" default="{!v.model.Avg_Communication_Collaboration_Time__c}"/>
+	  <aura:attribute name="Avg_SDM" type="Integer" default="{!v.model.SDM_Efforts__c}"/>
+	  <aura:attribute name="Avg_CME" type="Integer" default="{!v.model.Contract_Management_Efforts__c}"/>
+	  <aura:attribute name="Avg_MEE" type="Integer" default="{!v.model.Change_Minor_Enhancement_Efforts_Month__c}"/>
+	  <aura:attribute name="Avg_IE" type="Integer" default="{!v.model.Initial_Efforts__c}"/>
+      <aura:attribute name="Avg_CE" type="Integer"  default="{!v.model.Consulting_Efforts__c}"/> 
+	  
+       <aura:attribute name="Year_1_2" type="Integer"  default="{!v.model.Service_Optimization_Year_1_Year_2__c}"/>
+       <aura:attribute name="Year_2_3" type="Integer" default="{!v.model.Service_Optimization_Year_2_Year_3__c}"/>
+       <aura:attribute name="Year_3_4" type="Integer"  default="{!v.model.Service_Optimization_Year_3_Year_4__c}"/>
+
+  <div class="Year5Input">
+  <div class="slds-form-element">
+      <label class="slds-checkbox_toggle slds-grid">
+      <span class="slds-form-element__label slds-m-bottom_none">Year 5</span>
+        <ui:inputCheckbox change="{!c.toggleColumn}"/>
+         <span id="toggle-desc" class="slds-checkbox_faux_container" aria-live="assertive">
+        <span class="slds-checkbox_faux"></span>
+        <span class="slds-checkbox_on">Enabled</span>
+        <span class="slds-checkbox_off">Disabled</span>
+      </span>
+    </label>
+     </div>
+</div>  
+  
+<!-- *********************** 3 year Table Generation Starts *********************-->     
+ 
+ <div aura:id="hidecol3">
+<table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered ">
+            
+ <!-- *********************** Table Header *********************--> 
+  <thead>
+    <tr class="slds-text-title_caps ">
+      <th scope="col">
+        <div class="slds-truncate" title="Ticekt Volume">Ticekt Volume</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 1">Year 1</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 2">Year 2</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 3">Year 3</div>
+      </th>   	        
+            
+      </tr>
+  </thead>
+            <tbody>
+                
+    <!-- *********************** Row 1 *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticket Volume">
+        <div class="slds-truncate" title="Incident Tickets">Incident Tickets</div>
+      </th>
+      <td data-label="Year 1">
+         <ui:outputNumber value="{!v.year1inc}"/>
+          
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2inc}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3inc}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      
+                </tr>
+                
+<!-- *********************** Row 2 *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Service Requests">Service Requests</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1SR}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2SR}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3SR}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+    
+                </tr>
+                
+<!-- *********************** Row 3 *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Problem Tickets">Problem Tickets</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1PT}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2PT}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3PT}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+                     </tr>
+                                            
+                           
+            
+      <!-- *********************** Table Header for Efforts*********************-->       
+            
+    <tr class="slds-text-title_caps">
+      <th scope="row">
+        <div class="slds-truncate" title="Efforts">Efforts</div>  
+      </th>
+           <th scope="col">
+        <div class="slds-truncate" title="Year 1"></div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 2"></div> 
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 3"></div>
+      </th>   
+      </tr> 
+
+            
+<!-- *********************** Row 1 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Incident Tickets">Incident Tickets</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1IncEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2IncEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3IncEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+                    </tr>
+    <!-- *********************** Row 2 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Service Requests">Service Requests</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1SREff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2SREff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3SREff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+                </tr>
+    <!-- *********************** Row 3 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Problem Tickets">Problem Tickets</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1PTEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2PTEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3PTEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+                 </tr> 
+    
+     <!-- *********************** Row 4 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Preventive/ Corrective Actions">Preventive/ Corrective Actions</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1PCAEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2PCAEff}"/>             
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3PCAEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+    </tr>
+    
+     <!-- *********************** Row 5 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Knowledge Retention">Knowledge Retention</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1KREff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2KREff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3KREff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+                </tr>
+    
+             <!-- *********************** Row 6 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Communication and Collaboration">Communication And Collaboration</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1CCTEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2CCTEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3CCTEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+                </tr>
+                     <!-- *********************** Row 7 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Coordination - SDM">Coordination - SDM</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1SDMEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2SDMEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3SDMEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+                </tr> 
+    
+     <!-- *********************** Row 8 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Coordination - Contract Mgmt">Coordination - Contract Mgmt</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1CMEEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2CMEEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3CMEEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+                </tr>
+    
+                      <!-- *********************** Row 9 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Change/ Enhancements (Minor)">Change/ Enhancements (Minor)</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1MEEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2MEEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3MEEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+                </tr>
+                      <!-- *********************** Row 10 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Initial Costs">Initial Costs</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1ICEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputText value=""/>              
+      </td>
+      <td data-label="Year 3">
+          <ui:outputText value=""/>                
+      </td>
+                </tr>
+    
+                            <!-- *********************** Row 11 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Consulting Efforts">Consulting Efforts</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1CEEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2CEEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3CEEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+                </tr>  
+          <!-- *********************** Row 12 Total Efforts *********************-->            
+    <tr class="slds-text-title_caps">
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Total Efforts (in PH)">Total Efforts (in PH)</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1TOTALEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2TOTALEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3TOTALEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+             </tr>  
+    <!-- *********************** Row 12 FTE Count *********************-->            
+    <tr class="slds-text-title_caps">
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="FTE Count">FTE Count</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1FTE}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2FTE}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3FTE}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+                  </tr>    
+      </tbody>                      
+  </table>
+</div> 
+
+  <!-- *********************** 3 year Table Generation Ends *********************-->    
+    
+      
+    
+    
+ <!-- *********************** 5 year Table Generation Starts *********************--> 
+ 
+ <div aura:id="hidecol5" class="slds-hide">
+ <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered ">
+            
+ <!-- *********************** Table Header *********************--> 
+  <thead>
+    <tr class="slds-text-title_caps">
+      <th scope="col">
+        <div class="slds-truncate" title="Ticekt Volume">Ticekt Volume</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 1">Year 1</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 2">Year 2</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 3">Year 3</div>
+      </th>
+     	        
+      <th scope="col">
+        <div class="slds-truncate" title="Year 4">Year 4</div>
+      </th>     
+        
+        <th scope="col">
+        <div class="slds-truncate" title="Year 5">Year 5</div>
+      </th>
+       
+ 
+      </tr>
+  </thead>
+            <tbody>
+                
+    <!-- *********************** Row 1 *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticket Volume">
+        <div class="slds-truncate" title="Incident Tickets">Incident Tickets</div>
+      </th>
+      <td data-label="Year 1">
+         <ui:outputNumber value="{!v.year1inc}"/>
+          
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2inc}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3inc}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+        
+       
+        <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4inc}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+        
+        
+    	
+      	<td data-label="Year 5">
+          <ui:outputNumber value="{!v.year4inc}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+           
+                </tr>
+                
+<!-- *********************** Row 2 *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Service Requests">Service Requests</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1SR}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2SR}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3SR}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->  
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4SR}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year4SR}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>
+                
+<!-- *********************** Row 3 *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Problem Tickets">Problem Tickets</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1PT}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2PT}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3PT}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4PT}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year5PT}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>
+                                            
+                           
+            
+      <!-- *********************** Table Header for Efforts*********************-->       
+    <tr class="slds-text-title_caps">
+      <th scope="col">
+        <div class="slds-truncate" title="Efforts">Efforts</div>  
+      </th>
+	<th scope="col">
+        <div class="slds-truncate" title="Year 1"></div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 2"></div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 3"></div>
+      </th>  
+             <th scope="col">
+        <div class="slds-truncate" title="Year 4"></div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Year 5"></div>
+      </th>  
+    
+      </tr>
+           
+<!-- *********************** Row 1 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Incident Tickets">Incident Tickets</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1IncEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2IncEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3IncEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4IncEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->  
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year5IncEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>
+     <!-- *********************** Row 2 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Service Requests">Service Requests</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1SREff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2SREff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3SREff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4SREff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year5SREff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>
+     
+     <!-- *********************** Row 3 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Problem Tickets">Problem Tickets</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1PTEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2PTEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3PTEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4PTEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year5PTEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>
+     
+      <!-- *********************** Row 4 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Preventive/ Corrective Actions">Preventive/ Corrective Actions</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1PCAEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2PCAEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3PCAEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4PCAEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year5PCAEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>
+     
+           <!-- *********************** Row 5 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Knowledge Retention">Knowledge Retention</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1KREff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2KREff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3KREff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4KREff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year5KREff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>
+     
+               <!-- *********************** Row 6 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Communication and Collaboration">Communication And Collaboration</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1CCTEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2CCTEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3CCTEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4CCTEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> --> 
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year5CCTEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>
+     
+                 <!-- *********************** Row 7 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Coordination - SDM">Coordination - SDM</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1SDMEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2SDMEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3SDMEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4SDMEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> --> 
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year5SDMEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>
+
+                      <!-- *********************** Row 8 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Coordination - Contract Mgmt">Coordination - Contract Mgmt</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1CMEEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2CMEEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3CMEEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4CMEEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> --> 
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year5CMEEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>
+                  <!-- *********************** Row 9 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Change/ Enhancements (Minor)">Change/ Enhancements (Minor)</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1MEEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2MEEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3MEEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4MEEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> --> 
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year5MEEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>
+                      <!-- *********************** Row 10 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Initial Costs">Initial Costs</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1ICEff}"/>              
+      </td>
+              <td data-label="Year 2">
+          <ui:outputText value=""/>              
+      </td>
+      <td data-label="Year 3">
+          <ui:outputText value=""/>                
+      </td>
+              <td data-label="Year 4">
+          <ui:outputText value=""/>              
+      </td>
+      <td data-label="Year 5">
+          <ui:outputText value=""/>                
+      </td> 
+   </tr>
+                           <!-- *********************** Row 11 Efforts *********************-->            
+    <tr>
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Consulting Efforts">Consulting Efforts</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1CEEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2CEEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3CEEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4CEEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> --> 
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year5CEEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>    
+       <!-- *********************** Row 12 Total Efforts *********************-->            
+    <tr class="slds-text-title_caps">
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="Total Efforts (in PH)">Total Efforts (in PH)</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1TOTALEff}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2TOTALEff}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3TOTALEff}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4TOTALEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> --> 
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year5TOTALEff}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>   
+     <!-- *********************** Row 12 FTE Count *********************-->            
+    <tr class="slds-text-title_caps">
+      <th scope="row" data-label="Ticekt Volume">
+        <div class="slds-truncate" title="FTE Count">FTE Count</div>
+      </th>
+      <td data-label="Year 1">
+          <ui:outputNumber value="{!v.year1FTE}"/>              
+      </td>
+      <td data-label="Year 2">
+          <ui:outputNumber value="{!v.year2FTE}"/>            
+      </td>
+      <td data-label="Year 3">
+          <ui:outputNumber value="{!v.year3FTE}"/>  
+    <!--    <div class="slds-truncate" title="Prospecting">Prospecting</div> -->
+      </td>
+      <td data-label="Year 4">
+          <ui:outputNumber value="{!v.year4FTE}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> --> 
+      </td>
+    
+      <td data-label="Year 5">
+          <ui:outputNumber value="{!v.year5FTE}"/> 
+     <!--   <div class="slds-truncate" title="20%">20%</div> -->
+      </td>
+                </tr>        
+     </tbody>                       
+                            
+  </table>    
+    
+ </div>      
+   
+</aura:component>

@@ -1,0 +1,30 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<aura:attribute name="recordId" type="String"  />      
+   
+   <aura:attribute name="model" type="Model__c"  default="{ 'sobjectType': '	Model__c',  
+                    'Name': '',
+                     'Id':''                                      }"/>        
+     <aura:handler name="init" value="{!this}" action="{!c.navigateToMyComponent}"/>
+    
+
+<div class="demo-only demo--inverse" style="height: 6rem;">
+  <div role="status" class="slds-spinner slds-spinner_brand slds-spinner_medium">  
+    <span class="slds-assistive-text">Loading</span>
+    <div class="slds-spinner__dot-a"></div>
+    <div class="slds-spinner__dot-b"></div>
+  </div>
+</div>  
+    
+    <!--<aura:registerEvent name="ResourceLoadingevent" type="c:ResourceLoadingevt"/>-->
+    
+<!--<div id ="aurapage">
+    <div class="nvaigate">
+        <ui:button label="Redirecting to Resource Loading" press="{!c.navigateToMyComponent}"/>
+    
+        
+        </div>
+    
+    </div>  -->
+    
+    
+</aura:component>

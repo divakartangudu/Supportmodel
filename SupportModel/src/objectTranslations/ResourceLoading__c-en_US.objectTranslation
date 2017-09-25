@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ResourceLoading</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>ResourceLoadings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Base_Location__c</name>
+        <picklistValues>
+            <masterLabel>Offshore - INDIA</masterLabel>
+            <translation><!-- Offshore - INDIA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onsite</masterLabel>
+            <translation><!-- Onsite --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Days --></label>
+        <name>Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Endmonth --></label>
+        <name>Endmonth__c</name>
+    </fields>
+    <fields>
+        <label><!-- Endyear --></label>
+        <name>Endyear__c</name>
+    </fields>
+    <fields>
+        <label><!-- FTE Jan --></label>
+        <name>FTE_Jan__c</name>
+    </fields>
+    <fields>
+        <label><!-- FTE --></label>
+        <name>FTE__c</name>
+    </fields>
+    <fields>
+        <label><!-- GCM Level --></label>
+        <name>GCM_Level__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loading% --></label>
+        <name>Loading__c</name>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation><!-- 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100</masterLabel>
+            <translation><!-- 100 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20</masterLabel>
+            <translation><!-- 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30</masterLabel>
+            <translation><!-- 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40</masterLabel>
+            <translation><!-- 40 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50</masterLabel>
+            <translation><!-- 50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60</masterLabel>
+            <translation><!-- 60 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70</masterLabel>
+            <translation><!-- 70 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80</masterLabel>
+            <translation><!-- 80 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90</masterLabel>
+            <translation><!-- 90 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ModStartDate --></label>
+        <name>ModStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Model --></label>
+        <name>Model__c</name>
+        <relationshipLabel><!-- ResourceLoadings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Rate/Hr --></label>
+        <name>Rate_Hr__c</name>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>Role__c</name>
+        <picklistValues>
+            <masterLabel>Salesforce Consultant/ Sr Architect</masterLabel>
+            <translation><!-- Salesforce Consultant/ Sr Architect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce Project Management</masterLabel>
+            <translation><!-- Salesforce Project Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration)</masterLabel>
+            <translation><!-- Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration) - On Call</masterLabel>
+            <translation><!-- Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration) - On Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration) - Weekends</masterLabel>
+            <translation><!-- Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration) - Weekends --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration)- Off hours</masterLabel>
+            <translation><!-- Salesforce Support Analyst (Salesforce, Force.com, Integration, Data Migration)- Off hours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce Support Lead (Salesforce, Force.com, Integration)</masterLabel>
+            <translation><!-- Salesforce Support Lead (Salesforce, Force.com, Integration) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce Support Lead (Salesforce, Force.com, Integration, Data Migration)</masterLabel>
+            <translation><!-- Salesforce Support Lead (Salesforce, Force.com, Integration, Data Migration) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Select --></label>
+        <name>Select__c</name>
+    </fields>
+    <fields>
+        <label><!-- StartMonthDiff --></label>
+        <name>StartMonthDiff__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Startmonth --></label>
+        <name>Startmonth__c</name>
+    </fields>
+    <fields>
+        <label><!-- Startyear --></label>
+        <name>Startyear__c</name>
+    </fields>
+    <fields>
+        <label><!-- TotalContractMonths --></label>
+        <name>TotalContractMonths__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Fee --></label>
+        <name>Total_Fee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Totalmonths --></label>
+        <name>Totalmonths__c</name>
+    </fields>
+    <layouts>
+        <layout>ResourceLoading Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Resource Start Date can not be before Contract Start Date --></errorMessage>
+        <name>Check_Start_Date_of_Resource</name>
+    </validationRules>
+</CustomObjectTranslation>
